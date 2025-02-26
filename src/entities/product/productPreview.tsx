@@ -1,16 +1,18 @@
-import { FC, useState } from "react";
-import { productList } from "./types/productList.types";
-import "./ui/productPreview.css";
-import Button from "../../shared/button/button";
-import { useDispatch } from "react-redux";
-import {
-    setModalWindowForm,
-    setModalWindowTitle,
-    setOnSubmitText,
-} from "../../store/slices/windowSlices/windowSlices";
-import { Link } from "react-router-dom";
-import ModalWindow from "../../shared/modalWindow/modalWindow";
-import deleteProduct from "../../apiFunctions/product/deleteProduct";
+import { FC, useState } from "react"
+import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
+
+import Button from "../../shared/button/button"
+import ModalWindow from "../../shared/modalWindow/modalWindow"
+
+import deleteProduct from "../../apiFunctions/product/deleteProduct"
+
+import { productList } from "./types/productList.types"
+
+import { setModalWindowForm, setModalWindowTitle, setOnSubmitText } from "../../store/slices/windowSlices/windowSlices"
+
+import "./ui/productPreview.css"
+
 
 const ProductPreview: FC<productList> = ({ id, name, imageUrl,count }) => {
     const [isDelete, setIsDelete] = useState<boolean>(false);

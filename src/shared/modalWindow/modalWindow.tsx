@@ -1,11 +1,15 @@
-import Button from "../button/button"
 import { FC } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setModalWindowStatus } from "../../store/slices/windowSlices/windowSlices"
-import { RootState } from "../../store/store"
-import './modalWindow.css'
+
+import Button from "../button/button"
 
 import { modalWindow } from "./modalWindow.type"
+
+import { RootState } from "../../store/store"
+import { setModalWindowStatus } from "../../store/slices/windowSlices/windowSlices"
+
+import './modalWindow.css'
+
 
 const ModalWindow:FC<modalWindow> = ({Component,onSubmit,onDecline}) => {
 

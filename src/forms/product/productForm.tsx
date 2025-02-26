@@ -1,13 +1,18 @@
+import { useDispatch, useSelector } from "react-redux"
 import { useCreateForm, ReactiveForm, InputField, setGlobalObject, useActionOnSubmit, getFormValues, formIsValid, fieldSettings } from "reactive-fast-form"
-import Button from "../../shared/button/button"
+
 import isNumber from "../../functions/validFunctions/isNumber"
 import isValidURL from "../../functions/validFunctions/isUrl"
-import { useDispatch, useSelector } from "react-redux"
-import { product } from "../../entities/product/types/product.types"
-import { RootState } from "../../store/store"
-import { createProduct } from "../../entities/product/types/createProduct.types"
+
 import updateProduct from "../../apiFunctions/product/updateProduct"
 import addProduct from "../../apiFunctions/product/addProduct"
+
+import { product } from "../../entities/product/types/product.types"
+import { createProduct } from "../../entities/product/types/createProduct.types"
+import { RootState } from "../../store/store"
+
+import Button from "../../shared/button/button"
+
 
 const settings: fieldSettings = {
     validClass: "input-field valid-input-field",

@@ -1,11 +1,15 @@
 import { FC, useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { product } from "./types/product.types"
+import { useDispatch } from "react-redux"
+
 import ProductForm from "../../forms/product/productForm"
 import Button from "../../shared/button/button"
-import { useDispatch } from "react-redux"
-import { setIdOfProduct,setIsUpdate } from "../../store/slices/windowSlices/productFormSlice"
+
 import getProduct from "../../apiFunctions/product/getProduct"
+
+import { product } from "./types/product.types"
+
+import { setIdOfProduct, setIsUpdate } from "../../store/slices/windowSlices/productFormSlice"
 
 const ProductPage: FC = () => {
     const { id } = useParams<{ id: string }>()

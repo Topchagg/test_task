@@ -1,7 +1,8 @@
 import { createProduct } from "../../entities/product/types/createProduct.types"
 import { setModalWindowStatus } from "../../store/slices/windowSlices/windowSlices"
+import { AppDispatch } from "../../store/store"
 
-const addProduct = async (productData: createProduct,dispatch) => {
+const addProduct = async (productData: createProduct,dispatch: AppDispatch) => {
     try {
         const response = await fetch('http://localhost:3000/products', {
             method: 'POST',

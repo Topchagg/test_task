@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react';
-import Button from '../../shared/button/button';
-import ProductForm from '../../forms/product/productForm';
-import ProductPreview from '../../entities/product/productPreview';
-import ModalWindow from '../../shared/modalWindow/modalWindow';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { RootState } from '../../store/store';
-import { setModalWindowForm, setModalWindowStatus, setModalWindowTitle, setOnSubmitText } from '../../store/slices/windowSlices/windowSlices';
-import { setIdOfProduct, setIsUpdate } from '../../store/slices/windowSlices/productFormSlice';
-import { product } from '../../entities/product/types/product.types';
+import Button from '../../shared/button/button'
+import ProductForm from '../../forms/product/productForm'
+import ProductPreview from '../../entities/product/productPreview'
+import ModalWindow from '../../shared/modalWindow/modalWindow'
 
-import './ui/main.css';
+import { product } from '../../entities/product/types/product.types'
+
+import { RootState } from '../../store/store'
+import { setModalWindowForm, setModalWindowStatus, setModalWindowTitle, setOnSubmitText } from '../../store/slices/windowSlices/windowSlices'
+import { setIdOfProduct, setIsUpdate } from '../../store/slices/windowSlices/productFormSlice'
+
+import './ui/main.css'
 
 const MainSection = () => {
     const [products, setProducts] = useState<product[]>([]); 

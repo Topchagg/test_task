@@ -1,7 +1,8 @@
 import { product } from "../../entities/product/types/product.types"
 import { setModalWindowStatus } from "../../store/slices/windowSlices/windowSlices"
+import { AppDispatch } from "../../store/store"
 
-const updateProduct = async (productData: product,dispatch) => {
+const updateProduct = async (productData: product,dispatch:AppDispatch) => {
     try {
         const response = await fetch(`http://localhost:3000/products/${productData.id}`, {
             method: 'PUT',
