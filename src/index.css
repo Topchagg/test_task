@@ -1,0 +1,57 @@
+.title-48 {
+    font-size: 48px;
+}
+
+.title-24 {
+    font-size: 24px;
+}
+
+.title-18 {
+    font-size: 18px;
+}
+
+.text-23 {
+    font-size: 23px;
+}
+
+.text-14 {
+    font-size: 14px;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.pt-30 {
+    padding-top: 20px;
+}
+
+.pt-15 {
+    padding-top: 15px;
+}
+
+.pt-10 {
+    padding-top: 10px;
+}
+
+.input-field {
+    width: 400px;
+    height: 25px;
+    padding: 20px;
+    border-radius: 35px;
+    outline: none;
+}
+
+.valid-input-field{
+    border: solid blue 2px;
+}
+
+.invalid-input-field {
+    border: solid red 2px
+}
+
+.center {
+    margin: 0 auto;
+    width: 50%
+}

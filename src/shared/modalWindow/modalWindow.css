@@ -1,0 +1,27 @@
+.modal-window-wrapper {
+    z-index: 3;
+    height: 100vh; 
+    width: 100vw; 
+    opacity: 1;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    position: fixed; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-window {
+    padding-bottom: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    min-width: 60vw;
+    min-height: 60vh;
+    border: solid blue;
+    border-radius: 40px;
+}
+
+.buttons-wrapper {
+    width: 50%;
+}

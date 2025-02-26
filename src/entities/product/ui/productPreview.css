@@ -1,0 +1,7 @@
+.product-preview-wrapper {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    border: solid red;
+    cursor: pointer;
+}

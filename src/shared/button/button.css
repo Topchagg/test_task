@@ -1,0 +1,19 @@
+.default-btn {
+    background-color: black;
+    color: aliceblue;
+    font-size: 21px;
+    width: 350px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: 300ms;
+}
+
+.default-btn:hover {
+    width: 375px;
+    height: 110px;
+}
+
+.default-btn:active {
+    background-color: red;
+}
