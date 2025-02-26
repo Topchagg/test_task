@@ -1,7 +1,7 @@
 
 
 interface productList {
-    id:number,
+    id:string,
     name:string,
     count:number,
     imageUrl:string

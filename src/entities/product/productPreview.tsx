@@ -10,6 +10,7 @@ import {
 } from "../../store/slices/windowSlices/windowSlices";
 import { Link } from "react-router-dom";
 import ModalWindow from "../../shared/modalWindow/modalWindow";
+import deleteProduct from "../../apiFunctions/product/deleteProduct";
 
 const ProductPreview: FC<productList> = ({ id, name, imageUrl,count }) => {
     const [isDelete, setIsDelete] = useState<boolean>(false);
@@ -23,18 +24,10 @@ const ProductPreview: FC<productList> = ({ id, name, imageUrl,count }) => {
     };
 
     const onDeleteProduct = () => {
-        fetch(`http://localhost:3000/products/${id}`, {
-            method: 'DELETE',
-        })
-            .then((response) => {
-                if (response.ok) {
-                    alert("Deleted");
-                    setIsDelete(false); 
-                    window.location.reload()
-                } else {
-                    alert("something went wrong");
-                }
-            })
+        if(id){
+            deleteProduct(id)
+            setIsDelete(false)   
+        }     
     };
 
     const handleCancelDelete = () => {

@@ -5,6 +5,7 @@ import ProductForm from "../../forms/product/productForm"
 import Button from "../../shared/button/button"
 import { useDispatch } from "react-redux"
 import { setIdOfProduct,setIsUpdate } from "../../store/slices/windowSlices/productFormSlice"
+import getProduct from "../../apiFunctions/product/getProduct"
 
 const ProductPage: FC = () => {
     const { id } = useParams<{ id: string }>()
@@ -17,28 +18,16 @@ const ProductPage: FC = () => {
     const dispatch = useDispatch()
 
     const HandleUpdate = () => {
-        dispatch(setIdOfProduct(parseInt(id)))
-        dispatch(setIsUpdate(true))
-        setIsShowUpdateForm(true)
+        if(id){
+            dispatch(setIdOfProduct(id))
+            dispatch(setIsUpdate(true))
+            setIsShowUpdateForm(true)
+        }
     }
 
     useEffect(() => {
         if (id) {
-            fetch(`http://localhost:3000/products/${id}`)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error("not found")
-                    }
-                    return response.json()
-                })
-                .then((data) => {
-                    setProductData(data)  
-                    setLoading(false)  
-                })
-                .catch((err) => {
-                    setError(err.message)  
-                    setLoading(false)
-                })
+            getProduct(id,setProductData,setLoading,setError)
         }
     }, [id])  
 

@@ -1,7 +1,7 @@
 import { comment } from "../../comment/comment.types"
 
 interface product {
-    id:number
+    id:string
     name:string,
     imageUrl:string,
     count:number,

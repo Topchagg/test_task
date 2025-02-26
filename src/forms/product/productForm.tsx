@@ -3,10 +3,11 @@ import Button from "../../shared/button/button"
 import isNumber from "../../functions/validFunctions/isNumber"
 import isValidURL from "../../functions/validFunctions/isUrl"
 import { useDispatch, useSelector } from "react-redux"
-import { setModalWindowStatus } from "../../store/slices/windowSlices/windowSlices"
 import { product } from "../../entities/product/types/product.types"
 import { RootState } from "../../store/store"
 import { createProduct } from "../../entities/product/types/createProduct.types"
+import updateProduct from "../../apiFunctions/product/updateProduct"
+import addProduct from "../../apiFunctions/product/addProduct"
 
 const settings: fieldSettings = {
     validClass: "input-field valid-input-field",
@@ -22,43 +23,6 @@ const ProductForm = () => {
 
     const [form, setForm, trigger] = useCreateForm(['name', 'imageUrl', 'count', 'width', 'height', 'weight'])
 
-    const addProduct = async (productData: createProduct) => {
-        try {
-            const response = await fetch('http://localhost:3000/products', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(productData),
-            })
-
-            const data = await response.json()
-            dispatch(setModalWindowStatus())
-            window.location.reload()
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
-    const updateProduct = async (productData: product) => {
-        try {
-            const response = await fetch(`http://localhost:3000/products/${productData.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(productData),
-            })
-
-            const data = await response.json()
-            console.log(data)
-
-            dispatch(setModalWindowStatus())
-            window.location.reload()
-        } catch (error) {
-            console.error(error)
-        }
-    }
 
     useActionOnSubmit(() => {
         if (formIsValid(form)) {
@@ -77,7 +41,7 @@ const ProductForm = () => {
                     weight: values['weight'],
                     comments: []
                 }
-                updateProduct(correctObject) 
+                updateProduct(correctObject,dispatch) 
             } else {
                 const correctObject:createProduct = {
                     name: values['name'],
@@ -90,7 +54,7 @@ const ProductForm = () => {
                     weight: values['weight'],
                     comments: []
                 }
-                addProduct(correctObject) 
+                addProduct(correctObject,dispatch) 
             }
         }
     }, trigger)

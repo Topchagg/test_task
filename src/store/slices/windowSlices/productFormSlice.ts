@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface productFormSlice {
     isUpdate:boolean,
-    idOfElement:number|null
+    idOfElement:string|null
   }
 
 const initialState: productFormSlice = {
@@ -17,7 +17,7 @@ const productForm = createSlice({
     setIsUpdate(state,payload:PayloadAction<boolean>) {
       state.isUpdate = payload.payload
     },
-    setIdOfProduct(state,payload:PayloadAction<number|null>){
+    setIdOfProduct(state,payload:PayloadAction<string|null>){
         state.idOfElement = payload.payload
     },
   },
